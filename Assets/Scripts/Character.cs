@@ -9,6 +9,27 @@ public class Character : MonoBehaviour
     public bool IsDead = false;
     public int Health = 3;
 
-    public int SelectedAbility;
-    public int SelectedTarget;
+    public Ability SelectedAbility;
+    public Character SelectedTarget;
+
+    public bool SkipTurn = false;
+
+    public void ChangeHealth(int add)
+    {
+        Health += add;
+
+        if (Health <= 0)
+        {
+            IsDead = true;
+        }
+    }
+
+    public bool IsAttacker()
+    {
+        return ((SelectedAbility != null) && (
+            (SelectedAbility is Abilities.Attack) ||
+            (SelectedAbility is Abilities.BigAttack) ||
+            (SelectedAbility is Abilities.DelayedAttack))
+        );
+    }
 }
