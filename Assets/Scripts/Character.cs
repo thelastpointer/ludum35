@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Character : MonoBehaviour
 {
-    public SpriteRenderer GFX;
+    public GameObject GFX;
     public GameObject Selector;
 
     public bool IsDead = false;
@@ -27,14 +27,19 @@ public class Character : MonoBehaviour
     public bool IsAttacker()
     {
         return ((SelectedAbility != null) && (
-            (SelectedAbility is Abilities.Attack) ||
-            (SelectedAbility is Abilities.BigAttack) ||
-            (SelectedAbility is Abilities.DelayedAttack))
+            (SelectedAbility.GetType() == typeof(Abilities.Attack)) ||
+            (SelectedAbility.GetType() == typeof(Abilities.BigAttack)) ||
+            (SelectedAbility.GetType() == typeof(Abilities.DelayedAttack)))
         );
     }
 
     public void SetState(GameObject go)
     {
-        //...
+        if (GFX != null)
+            Destroy(GFX);
+
+        GFX = Instantiate(go);
+        GFX.transform.parent = transform;
+        GFX.transform.localPosition = Vector3.zero;
     }
 }
