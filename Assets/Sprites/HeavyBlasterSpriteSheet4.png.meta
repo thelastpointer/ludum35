@@ -1,0 +1,181 @@
+fileFormatVersion: 2
+guid: 7b31300b5ec7db54c98b9a56df8e201b
+timeCreated: 1460826063
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: HeavyBlasterSpriteSheet4_0
+    21300002: HeavyBlasterSpriteSheet4_1
+    21300004: HeavyBlasterSpriteSheet4_2
+    21300006: HeavyBlasterSpriteSheet4_3
+    21300008: HeavyBlasterSpriteSheet4_4
+    21300010: HeavyBlasterSpriteSheet4_5
+    21300012: HeavyBlasterSpriteSheet4_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: HeavyBlasterSpriteSheet4_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 305
+        width: 270
+        height: 75
+      alignment: 9
+      pivot: {x: 0.50255954, y: 0.04849487}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -135.69107, y: 71.362885}
+        - {x: -135.69107, y: -0.6371155}
+        - {x: -132.69107, y: -3.6371155}
+        - {x: 134.30893, y: -3.6371155}
+        - {x: 134.30893, y: 66.362885}
+        - {x: 133.30893, y: 71.362885}
+    - name: HeavyBlasterSpriteSheet4_1
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 185
+        width: 70
+        height: 110
+      alignment: 9
+      pivot: {x: 0.5296176, y: 0.041375037}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 27.92677, y: 105.448746}
+        - {x: -36.07323, y: 105.448746}
+        - {x: -37.07323, y: 93.448746}
+        - {x: -37.07323, y: 0.44874573}
+        - {x: -28.07323, y: -2.5512543}
+        - {x: -21.07323, y: -4.5512543}
+        - {x: 19.92677, y: -4.5512543}
+        - {x: 32.92677, y: 8.448746}
+        - {x: 32.92677, y: 101.448746}
+    - name: HeavyBlasterSpriteSheet4_2
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 165
+        width: 95
+        height: 130
+      alignment: 9
+      pivot: {x: 0.6818626, y: 0.0694046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -59.776947, y: 120.9774}
+        - {x: -64.77695, y: 99.9774}
+        - {x: -64.77695, y: 5.9774017}
+        - {x: -49.776947, y: -9.022598}
+        - {x: 30.223053, y: -9.022598}
+        - {x: 30.223053, y: 120.9774}
+    - name: HeavyBlasterSpriteSheet4_3
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 185
+        width: 65
+        height: 85
+      alignment: 9
+      pivot: {x: 0.52126396, y: 0.9552989}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33.882156, y: 3.799591}
+        - {x: -33.882156, y: -81.20041}
+        - {x: 31.117844, y: -81.20041}
+        - {x: 31.117844, y: 3.799591}
+    - name: HeavyBlasterSpriteSheet4_4
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 50
+        width: 70
+        height: 110
+      alignment: 9
+      pivot: {x: 0.53949016, y: 0.04765743}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 27.235687, y: 104.75768}
+        - {x: -36.764313, y: 104.75768}
+        - {x: -37.764313, y: 92.75768}
+        - {x: -37.764313, y: -0.2423172}
+        - {x: -28.764313, y: -3.2423172}
+        - {x: -21.764313, y: -5.242317}
+        - {x: 19.235687, y: -5.242317}
+        - {x: 32.235687, y: 7.757683}
+        - {x: 32.235687, y: 100.75768}
+    - name: HeavyBlasterSpriteSheet4_5
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 40
+        width: 155
+        height: 120
+      alignment: 9
+      pivot: {x: 0.063059896, y: 0.430892}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 31.225716, y: 68.29296}
+        - {x: -9.774284, y: 56.29296}
+        - {x: -9.774284, y: -47.70704}
+        - {x: 6.2257156, y: -51.70704}
+        - {x: 145.22571, y: -51.70704}
+        - {x: 145.22571, y: 68.29296}
+    - name: HeavyBlasterSpriteSheet4_6
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 5
+        width: 80
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8455387}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
