@@ -32,4 +32,9 @@ public class Character : MonoBehaviour
             (SelectedAbility is Abilities.DelayedAttack))
         );
     }
+
+    public void SetState(GameObject go)
+    {
+        //...
+    }
 }

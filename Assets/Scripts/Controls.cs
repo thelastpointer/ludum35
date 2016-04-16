@@ -9,6 +9,7 @@ public class Controls : MonoBehaviour
     public Team[] Teams;
     public GameObject WaitForPlayerPanel;
     public AbilitySelector[] AbilitySelectors;
+    public GameObject[] CharacterStates;
 
     int currentTeam = 0;
     int currentCharacter = 0;
@@ -183,6 +184,7 @@ public class Controls : MonoBehaviour
         // Note: ordering by a new guid means a randomly shuffled list
 
         // Defense chars
+        Debug.Log("Defenders");
         IEnumerable<Character> defender1 = Teams[0].Chars.Where(ch => (ch.SelectedAbility is Abilities.Defend));
         IEnumerable<Character> defender2 = Teams[1].Chars.Where(ch => (ch.SelectedAbility is Abilities.Defend));
         IEnumerable<Character> defenderAll = defender1.Concat(defender2).OrderBy(ch => System.Guid.NewGuid());
@@ -195,6 +197,7 @@ public class Controls : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         // Disablers
+        Debug.Log("Disablers");
         IEnumerable<Character> disabler1 = Teams[0].Chars.Where(ch => (ch.SelectedAbility is Abilities.Disable));
         IEnumerable<Character> disabler2 = Teams[1].Chars.Where(ch => (ch.SelectedAbility is Abilities.Disable));
         IEnumerable<Character> disablerAll = defender1.Concat(defender2).OrderBy(ch => System.Guid.NewGuid());
@@ -206,6 +209,7 @@ public class Controls : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         // Healers
+        Debug.Log("Healers");
         IEnumerable<Character> healer1 = Teams[0].Chars.Where(ch => (ch.SelectedAbility is Abilities.Disable));
         IEnumerable<Character> healer2 = Teams[1].Chars.Where(ch => (ch.SelectedAbility is Abilities.Disable));
         IEnumerable<Character> healerAll = defender1.Concat(defender2).OrderBy(ch => System.Guid.NewGuid());
@@ -217,6 +221,7 @@ public class Controls : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         // Attackers -- random
+        Debug.Log("Attackers");
         IEnumerable<Character> attacker1 = Teams[0].Chars.Where(ch => ch.IsAttacker());
         IEnumerable<Character> attacker2 = Teams[1].Chars.Where(ch => ch.IsAttacker());
         IEnumerable<Character> attackerAll = defender1.Concat(defender2).OrderBy(ch => System.Guid.NewGuid());
@@ -226,6 +231,10 @@ public class Controls : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         yield return new WaitForSeconds(0.5f);
+
+        Debug.Log("Resolved!");
+
+        //...
     }
 
     public void OnSelectAbility(int idx)
@@ -277,7 +286,10 @@ public class Controls : MonoBehaviour
         foreach (Team t in Teams)
         {
             foreach (Character ch in t.Chars)
+            {
                 ch.Selector.SetActive(false);
+                ch.SetState(CharacterStates[0]);
+            }
         }
 
         abilityList = new Ability[7];
