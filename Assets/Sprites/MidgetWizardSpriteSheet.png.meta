@@ -1,0 +1,155 @@
+fileFormatVersion: 2
+guid: 2b251649c3bd2d64c9349e7b97e4fb39
+timeCreated: 1460915263
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: MidgetWizardSpriteSheet_0
+    21300002: MidgetWizardSpriteSheet_1
+    21300004: MidgetWizardSpriteSheet_2
+    21300006: MidgetWizardSpriteSheet_3
+    21300008: MidgetWizardSpriteSheet_4
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: MidgetWizardSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 250
+        width: 145
+        height: 125
+      alignment: 9
+      pivot: {x: 0.5043074, y: 0.055292726}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -60.124573, y: 118.08841}
+        - {x: -72.12457, y: 107.08841}
+        - {x: -73.12457, y: 103.08841}
+        - {x: -73.12457, y: 3.0884094}
+        - {x: -64.12457, y: -6.9115906}
+        - {x: 57.875427, y: -6.9115906}
+        - {x: 71.87543, y: -3.9115906}
+        - {x: 71.87543, y: 38.08841}
+        - {x: 37.875427, y: 118.08841}
+    - name: MidgetWizardSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 245
+        width: 110
+        height: 130
+      alignment: 9
+      pivot: {x: 0.50567824, y: 0.9660398}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -55.624603, y: 4.4148254}
+        - {x: -55.624603, y: -125.585175}
+        - {x: 54.375397, y: -125.585175}
+        - {x: 54.375397, y: 4.4148254}
+    - name: MidgetWizardSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 75
+        width: 120
+        height: 165
+      alignment: 9
+      pivot: {x: 0.5156147, y: 0.6400595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -48.873764, y: 59.390198}
+        - {x: -61.873764, y: 8.390198}
+        - {x: -61.873764, y: -102.6098}
+        - {x: -46.873764, y: -102.6098}
+        - {x: -44.873764, y: -100.6098}
+        - {x: -22.873764, y: -105.6098}
+        - {x: 38.126236, y: -105.6098}
+        - {x: 58.126236, y: -93.6098}
+        - {x: 58.126236, y: 59.390198}
+    - name: MidgetWizardSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 5
+        width: 55
+        height: 225
+      alignment: 9
+      pivot: {x: 0.31830138, y: 0.50277597}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.506577, y: 111.875404}
+        - {x: -17.506577, y: 34.875404}
+        - {x: -7.5065765, y: 24.875404}
+        - {x: -5.5065765, y: -109.124596}
+        - {x: -4.5065765, y: -113.124596}
+        - {x: 21.493423, y: -113.124596}
+        - {x: 29.493423, y: -111.124596}
+        - {x: 37.493423, y: -56.124596}
+        - {x: 37.493423, y: 111.875404}
+    - name: MidgetWizardSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 20
+        width: 85
+        height: 40
+      alignment: 9
+      pivot: {x: 0.037069432, y: 0.46877107}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 78.8491, y: 21.249157}
+        - {x: -3.1509018, y: 21.249157}
+        - {x: -3.1509018, y: -18.750843}
+        - {x: 50.8491, y: -18.750843}
+        - {x: 77.8491, y: -11.750843}
+        - {x: 81.8491, y: -7.750843}
+        - {x: 81.8491, y: 18.249157}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

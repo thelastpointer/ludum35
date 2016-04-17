@@ -1,0 +1,119 @@
+fileFormatVersion: 2
+guid: b68d6ef87a747c040abd41b1bc5bf069
+timeCreated: 1460915390
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SuicideBombSpriteSheet-1_0
+    21300002: SuicideBombSpriteSheet-1_1
+    21300004: SuicideBombSpriteSheet-1_2
+    21300006: SuicideBombSpriteSheet-1_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: SuicideBombSpriteSheet-1_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 45
+        width: 40
+        height: 40
+      alignment: 9
+      pivot: {x: 0.8981756, y: 0.031558417}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35.927025, y: 38.737663}
+        - {x: -35.927025, y: 7.7376633}
+        - {x: -9.927025, y: -1.2623367}
+        - {x: 4.072975, y: -1.2623367}
+        - {x: 4.072975, y: 32.737663}
+        - {x: -11.927025, y: 38.737663}
+    - name: SuicideBombSpriteSheet-1_1
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 70
+        width: 95
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.5, y: 52.5}
+        - {x: -47.5, y: 24.5}
+        - {x: -47.5, y: -41.5}
+        - {x: -33.5, y: -52.5}
+        - {x: 36.5, y: -52.5}
+        - {x: 47.5, y: -44.5}
+        - {x: 47.5, y: 20.5}
+        - {x: 33.5, y: 52.5}
+    - name: SuicideBombSpriteSheet-1_2
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 20
+        width: 40
+        height: 25
+      alignment: 9
+      pivot: {x: 0.23454991, y: 0.7123607}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SuicideBombSpriteSheet-1_3
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 20
+        width: 40
+        height: 25
+      alignment: 9
+      pivot: {x: 0.21893501, y: 0.72485244}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
