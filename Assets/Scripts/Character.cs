@@ -11,6 +11,8 @@ public class Character : MonoBehaviour
     public bool IsDead = false;
     public int Health = 3;
 
+    public int DelayedDamage = 0;
+
     public Ability SelectedAbility;
     public Character SelectedTarget;
 
