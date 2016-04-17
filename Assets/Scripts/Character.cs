@@ -51,5 +51,13 @@ public class Character : MonoBehaviour
         GFX = Instantiate(go);
         GFX.transform.parent = transform;
         GFX.transform.localPosition = Vector3.zero;
+        GFX.transform.localScale = Vector3.one * 0.5f;
+
+        foreach (SpriteRenderer r in GFX.GetComponentsInChildren<SpriteRenderer>())
+            r.sortingLayerName = "Character";
+
+        Animator a = GFX.GetComponent<Animator>();
+        if (a != null)
+            a.SetTrigger("Shoot");
     }
 }
