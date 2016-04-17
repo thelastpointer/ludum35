@@ -62,11 +62,9 @@ namespace Abilities
         public void Resolve(Character user, Character target)
         {
             if (!(target.SelectedAbility is Defend))
-            {
                 target.ChangeHealth(-1);
-            }
             else
-                FX.DoDeflectEffect(target.transform.position);
+                target.ChangeHealth(-2);
 
             user.SkipTurn = 2;
         }
@@ -120,7 +118,8 @@ namespace Abilities
 
         public void Resolve(Character user, Character target)
         {
-            throw new NotImplementedException();
+            target.ChangeHealth(1);
+            FX.DoHealEffect(target.transform.position);
         }
     }
 

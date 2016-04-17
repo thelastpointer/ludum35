@@ -190,14 +190,14 @@ public class Controls : MonoBehaviour
                     if (oldSelected != selectedTarget)
                     {
                         CurrentTeam.Chars[oldSelected].Selector.SetActive(false);
-                        CurrentTeam.Chars[selectedTarget].Selector.SetActive(false);
+                        CurrentTeam.Chars[selectedTarget].Selector.SetActive(true);
                     }
                 }
 
                 // Target selected
                 if (Input.GetButtonDown("Submit"))
                 {
-                    CurrentCharacter.SelectedTarget = EnemyTeam.Chars[selectedTarget];
+                    CurrentCharacter.SelectedTarget = CurrentTeam.Chars[selectedTarget];
                     CurrentCharacter.SelectedTarget.Selector.SetActive(false);
 
                     // Next char
@@ -320,61 +320,61 @@ public class Controls : MonoBehaviour
 
     IEnumerator ResolveTurn()
     {
-        // Note: ordering by a new guid means a randomly shuffled list
-
-        IEnumerable<Character> team1 = Teams[0].Chars.Where(ch => !ch.IsDead && (ch.SkipTurn == 0));
-        IEnumerable<Character> team2 = Teams[1].Chars.Where(ch => !ch.IsDead && (ch.SkipTurn == 0));
-
         // Defense chars
         Debug.Log("Defenders");
-        IEnumerable<Character> defender1 = team1.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Defend)));
-        IEnumerable<Character> defender2 = team2.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Defend)));
-        IEnumerable<Character> defenderAll = defender1.Concat(defender2).OrderBy(ch => System.Guid.NewGuid());
-        foreach (Character ch in defenderAll)
+        IEnumerable<Character> chars = GetCharsWithAbility(typeof(Abilities.Defend));
+        foreach (Character ch in chars)
         {
             ch.SetState(CharacterStates[(int)CharState.Defense]);
-
-            //...
-
             yield return new WaitForSeconds(0.1f);
         }
-        if (defenderAll.Count() > 0)
+        if (chars.Count() > 0)
             yield return new WaitForSeconds(0.5f);
 
         // Disablers
         Debug.Log("Disablers");
-        IEnumerable<Character> disabler1 = team1.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Disable)));
-        IEnumerable<Character> disabler2 = team2.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Disable)));
-        IEnumerable<Character> disablerAll = disabler1.Concat(disabler2).OrderBy(ch => System.Guid.NewGuid());
-        foreach (Character ch in disablerAll)
+        chars = GetCharsWithAbility(typeof(Abilities.Disable));
+        foreach (Character ch in chars)
         {
             ch.SetState(CharacterStates[(int)CharState.Disable]);
             ch.SelectedAbility.Resolve(ch, ch.SelectedTarget);
             yield return new WaitForSeconds(0.1f);
         }
-        if (disablerAll.Count() > 0)
+        if (chars.Count() > 0)
             yield return new WaitForSeconds(0.5f);
 
         // Healers
         Debug.Log("Healers");
-        IEnumerable<Character> healer1 = team1.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Heal)));
-        IEnumerable<Character> healer2 = team2.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Heal)));
-        IEnumerable<Character> healerAll = healer1.Concat(healer2).OrderBy(ch => System.Guid.NewGuid());
-        foreach (Character ch in healerAll)
+        chars = GetCharsWithAbility(typeof(Abilities.Heal));
+        foreach (Character ch in chars)
         {
             ch.SetState(CharacterStates[(int)CharState.Heal]);
             ch.SelectedAbility.Resolve(ch, ch.SelectedTarget);
             yield return new WaitForSeconds(0.1f);
         }
-        if (healerAll.Count() > 0)
+        if (chars.Count() > 0)
+            yield return new WaitForSeconds(0.5f);
+
+        // Self destruct
+        Debug.Log("Self destructors");
+        chars = GetCharsWithAbility(typeof(Abilities.SelfDestruct));
+        foreach (Character ch in chars)
+        {
+            ch.SetState(CharacterStates[(int)CharState.SelfDestruct]);
+            ch.SelectedAbility.Resolve(ch, ch.SelectedTarget);
+            yield return new WaitForSeconds(0.1f);
+        }
+        if (chars.Count() > 0)
             yield return new WaitForSeconds(0.5f);
 
         // Attackers -- random
         Debug.Log("Attackers");
-        IEnumerable<Character> attacker1 = team1.Where(ch => !ch.IsDead && ch.IsAttacker());
-        IEnumerable<Character> attacker2 = team2.Where(ch => !ch.IsDead && ch.IsAttacker());
-        IEnumerable<Character> attackerAll = attacker1.Concat(attacker2).OrderBy(ch => System.Guid.NewGuid());
-        foreach (Character ch in attackerAll)
+
+        chars = GetCharsWithAbility(typeof(Abilities.Attack))
+            .Concat(GetCharsWithAbility(typeof(Abilities.BigAttack)))
+            .Concat(GetCharsWithAbility(typeof(Abilities.DelayedAttack)));
+
+        foreach (Character ch in chars)
         {
             if (ch.SelectedAbility is Abilities.Attack)
             {
@@ -391,10 +391,10 @@ public class Controls : MonoBehaviour
                 ch.SetState(CharacterStates[(int)CharState.Delayed]);
                 StartCoroutine(AttackAnim(ch, ch.SelectedTarget, 2, (c1, c2) => { c1.SelectedAbility.Resolve(c1, c2); }));
             }
-            //ch.SelectedAbility.Resolve(ch, ch.SelectedTarget);
+            
             yield return new WaitForSeconds(0.1f);
         }
-        if (attackerAll.Count() > 0)
+        if (chars.Count() > 0)
             yield return new WaitForSeconds(2f);
 
         Debug.Log("Resolved!");
@@ -450,6 +450,20 @@ public class Controls : MonoBehaviour
             currentTeam = 0;
             StartPlayerTurn();
         }
+    }
+
+    IEnumerable<Character> GetCharsWithAbility(System.Type ability)
+    {
+        // Note: ordering by a new guid means a randomly shuffled list
+
+        IEnumerable<Character> team1 = Teams[0].Chars.Where(ch => !ch.IsDead && (ch.SkipTurn == 0));
+        IEnumerable<Character> team2 = Teams[1].Chars.Where(ch => !ch.IsDead && (ch.SkipTurn == 0));
+
+        IEnumerable<Character> chars1 = team1.Where(ch => (ch.SelectedAbility.GetType() == ability));
+        IEnumerable<Character> chars2 = team2.Where(ch => (ch.SelectedAbility.GetType() == ability));
+        IEnumerable<Character> charsAll = chars1.Concat(chars2).OrderBy(ch => System.Guid.NewGuid());
+
+        return charsAll;
     }
 
     public void OnSelectAbility(int idx)
