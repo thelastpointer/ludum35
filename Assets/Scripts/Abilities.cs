@@ -45,8 +45,11 @@ namespace Abilities
                 else
                 {
                     // ...miss
+                    FX.DoMissEffect(target.transform.position);
                 }
             }
+            else
+                FX.DoDeflectEffect(target.transform.position);
         }
     }
     public class BigAttack : Ability
@@ -62,8 +65,10 @@ namespace Abilities
             {
                 target.ChangeHealth(-1);
             }
+            else
+                FX.DoDeflectEffect(target.transform.position);
 
-            user.SkipTurn = true;
+            user.SkipTurn = 2;
         }
     }
     public class Defend : Ability

@@ -7,7 +7,10 @@ using System.Collections.Generic;
 public class Controls : MonoBehaviour
 {
     public Team[] Teams;
+    public GameObject WinPanel;
     public GameObject WaitForPlayerPanel;
+    public GameObject SkipTurnPanel;
+    public GameObject HelpPanel;
     public AbilitySelector[] AbilitySelectors;
     public GameObject[] CharacterStates;
     public GameObject[] Projectiles;
@@ -28,7 +31,8 @@ public class Controls : MonoBehaviour
         WaitForPlayer,
         SelectAbility,
         SelectTarget,
-        Resolve
+        Resolve,
+        SkipTurn
     }
     State state = State.None;
 
@@ -51,11 +55,29 @@ public class Controls : MonoBehaviour
         if (Mathf.Approximately(Input.GetAxisRaw("Vertical"), 0f))
             canSelect = true;
 
+        if (HelpPanel.activeSelf && Input.anyKeyDown)
+            HelpPanel.SetActive(false);
+        else if (!HelpPanel.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+            HelpPanel.SetActive(true);
+
         if (state == State.WaitForPlayer)
         {
             if (Input.anyKeyDown)
             {
                 SetState(State.SelectAbility);
+            }
+        }
+        else if (state == State.SkipTurn)
+        {
+            if (Input.anyKeyDown)
+            {
+                if (currentTeam == 1)
+                    SetState(State.Resolve);
+                else
+                {
+                    currentTeam = 1;
+                    StartPlayerTurn();
+                }
             }
         }
         else if (state == State.SelectTarget)
@@ -70,17 +92,25 @@ public class Controls : MonoBehaviour
                     if (Input.GetAxisRaw("Vertical") < 0)
                     {
                         canSelect = false;
-                        ++selectedTarget;
-                        if (selectedTarget >= EnemyTeam.Chars.Length)
-                            selectedTarget = 0;
+
+                        do
+                        {
+                            ++selectedTarget;
+                            if (selectedTarget >= EnemyTeam.Chars.Length)
+                                selectedTarget = 0;
+                        } while (EnemyTeam.Chars[selectedTarget].IsDead);
                     }
                     // Up
                     else if (Input.GetAxisRaw("Vertical") > 0)
                     {
                         canSelect = false;
-                        --selectedTarget;
-                        if (selectedTarget < 0)
-                            selectedTarget = EnemyTeam.Chars.Length - 1;
+
+                        do
+                        { 
+                            --selectedTarget;
+                            if (selectedTarget < 0)
+                                selectedTarget = EnemyTeam.Chars.Length - 1;
+                        } while (EnemyTeam.Chars[selectedTarget].IsDead);
                     }
 
                     // Selection changed
@@ -101,7 +131,7 @@ public class Controls : MonoBehaviour
                     bool hasNextChar = false;
                     for (int i=currentCharacter+1; i<CurrentTeam.Chars.Length; ++i)
                     {
-                        if (!CurrentTeam.Chars[i].IsDead && !CurrentTeam.Chars[i].SkipTurn)
+                        if (!CurrentTeam.Chars[i].IsDead && (CurrentTeam.Chars[i].SkipTurn == 0))
                         {
                             hasNextChar = true;
                             currentCharacter = i;
@@ -122,8 +152,7 @@ public class Controls : MonoBehaviour
                         else
                         {
                             currentTeam = 1;
-                            currentCharacter = 0;
-                            SetState(State.WaitForPlayer);
+                            StartPlayerTurn();
                         }
                     }
                 }
@@ -136,17 +165,25 @@ public class Controls : MonoBehaviour
                     if (Input.GetAxisRaw("Vertical") < 0)
                     {
                         canSelect = false;
-                        ++selectedTarget;
-                        if (selectedTarget >= CurrentTeam.Chars.Length)
-                            selectedTarget = 0;
+
+                        do
+                        {
+                            ++selectedTarget;
+                            if (selectedTarget >= CurrentTeam.Chars.Length)
+                                selectedTarget = 0;
+                        } while (CurrentTeam.Chars[selectedTarget].IsDead);
                     }
                     // Up
                     else if (Input.GetAxisRaw("Vertical") > 0)
                     {
                         canSelect = false;
-                        --selectedTarget;
-                        if (selectedTarget < 0)
-                            selectedTarget = CurrentTeam.Chars.Length - 1;
+
+                        do
+                        {
+                            --selectedTarget;
+                            if (selectedTarget < 0)
+                                selectedTarget = CurrentTeam.Chars.Length - 1;
+                        } while (CurrentTeam.Chars[selectedTarget].IsDead);
                     }
 
                     // Selection changed
@@ -167,7 +204,7 @@ public class Controls : MonoBehaviour
                     bool hasNextChar = false;
                     for (int i = currentCharacter + 1; i < CurrentTeam.Chars.Length; ++i)
                     {
-                        if (!CurrentTeam.Chars[i].IsDead && !CurrentTeam.Chars[i].SkipTurn)
+                        if (!CurrentTeam.Chars[i].IsDead && (CurrentTeam.Chars[i].SkipTurn == 0))
                         {
                             hasNextChar = true;
                             currentCharacter = i;
@@ -188,8 +225,7 @@ public class Controls : MonoBehaviour
                         else
                         {
                             currentTeam = 1;
-                            currentCharacter = 0;
-                            SetState(State.WaitForPlayer);
+                            StartPlayerTurn();
                         }
                     }
                 }
@@ -217,6 +253,9 @@ public class Controls : MonoBehaviour
                 break;
             case State.Resolve:
                 break;
+            case State.SkipTurn:
+                SkipTurnPanel.SetActive(false);
+                break;
             default:
                 break;
         }
@@ -225,7 +264,7 @@ public class Controls : MonoBehaviour
         {
             case State.WaitForPlayer:
                 WaitForPlayerPanel.SetActive(true);
-                WaitForPlayerPanel.GetComponentInChildren<Text>().text = string.Format("Player {0}, take your seat\nPress any key when ready", (currentTeam+1));
+                WaitForPlayerPanel.GetComponentInChildren<Text>().text = string.Format("PLAYER {0}, take your seat\npress any key when ready", (currentTeam+1));
                 break;
             case State.SelectAbility:
 
@@ -267,16 +306,10 @@ public class Controls : MonoBehaviour
                 }
                 break;
             case State.Resolve:
-                // Reset skip turns
-                foreach (Team t in Teams)
-                {
-                    foreach (Character ch in t.Chars)
-                    {
-                        ch.SkipTurn = false;
-                    }
-                }
-
                 StartCoroutine(ResolveTurn());
+                break;
+            case State.SkipTurn:
+                SkipTurnPanel.SetActive(true);
                 break;
             default:
                 break;
@@ -289,10 +322,13 @@ public class Controls : MonoBehaviour
     {
         // Note: ordering by a new guid means a randomly shuffled list
 
+        IEnumerable<Character> team1 = Teams[0].Chars.Where(ch => !ch.IsDead && (ch.SkipTurn == 0));
+        IEnumerable<Character> team2 = Teams[1].Chars.Where(ch => !ch.IsDead && (ch.SkipTurn == 0));
+
         // Defense chars
         Debug.Log("Defenders");
-        IEnumerable<Character> defender1 = Teams[0].Chars.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Defend)));
-        IEnumerable<Character> defender2 = Teams[1].Chars.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Defend)));
+        IEnumerable<Character> defender1 = team1.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Defend)));
+        IEnumerable<Character> defender2 = team2.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Defend)));
         IEnumerable<Character> defenderAll = defender1.Concat(defender2).OrderBy(ch => System.Guid.NewGuid());
         foreach (Character ch in defenderAll)
         {
@@ -307,8 +343,8 @@ public class Controls : MonoBehaviour
 
         // Disablers
         Debug.Log("Disablers");
-        IEnumerable<Character> disabler1 = Teams[0].Chars.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Disable)));
-        IEnumerable<Character> disabler2 = Teams[1].Chars.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Disable)));
+        IEnumerable<Character> disabler1 = team1.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Disable)));
+        IEnumerable<Character> disabler2 = team2.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Disable)));
         IEnumerable<Character> disablerAll = disabler1.Concat(disabler2).OrderBy(ch => System.Guid.NewGuid());
         foreach (Character ch in disablerAll)
         {
@@ -321,8 +357,8 @@ public class Controls : MonoBehaviour
 
         // Healers
         Debug.Log("Healers");
-        IEnumerable<Character> healer1 = Teams[0].Chars.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Heal)));
-        IEnumerable<Character> healer2 = Teams[1].Chars.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Heal)));
+        IEnumerable<Character> healer1 = team1.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Heal)));
+        IEnumerable<Character> healer2 = team2.Where(ch => (ch.SelectedAbility.GetType() == typeof(Abilities.Heal)));
         IEnumerable<Character> healerAll = healer1.Concat(healer2).OrderBy(ch => System.Guid.NewGuid());
         foreach (Character ch in healerAll)
         {
@@ -335,27 +371,27 @@ public class Controls : MonoBehaviour
 
         // Attackers -- random
         Debug.Log("Attackers");
-        IEnumerable<Character> attacker1 = Teams[0].Chars.Where(ch => ch.IsAttacker());
-        IEnumerable<Character> attacker2 = Teams[1].Chars.Where(ch => ch.IsAttacker());
+        IEnumerable<Character> attacker1 = team1.Where(ch => !ch.IsDead && ch.IsAttacker());
+        IEnumerable<Character> attacker2 = team2.Where(ch => !ch.IsDead && ch.IsAttacker());
         IEnumerable<Character> attackerAll = attacker1.Concat(attacker2).OrderBy(ch => System.Guid.NewGuid());
         foreach (Character ch in attackerAll)
         {
             if (ch.SelectedAbility is Abilities.Attack)
             {
                 ch.SetState(CharacterStates[(int)CharState.Attack]);
-                StartCoroutine(AttackAnim(ch.transform, ch.SelectedTarget.transform, 0));
+                StartCoroutine(AttackAnim(ch, ch.SelectedTarget, 0, (c1, c2) => { c1.SelectedAbility.Resolve(c1, c2); }));
             }
             else if (ch.SelectedAbility is Abilities.BigAttack)
             {
                 ch.SetState(CharacterStates[(int)CharState.BigAttack]);
-                StartCoroutine(AttackAnim(ch.transform, ch.SelectedTarget.transform, 1));
+                StartCoroutine(AttackAnim(ch, ch.SelectedTarget, 1, (c1, c2) => { c1.SelectedAbility.Resolve(c1, c2); }));
             }
             else if (ch.SelectedAbility is Abilities.DelayedAttack)
             {
                 ch.SetState(CharacterStates[(int)CharState.Delayed]);
-                StartCoroutine(AttackAnim(ch.transform, ch.SelectedTarget.transform, 2));
+                StartCoroutine(AttackAnim(ch, ch.SelectedTarget, 2, (c1, c2) => { c1.SelectedAbility.Resolve(c1, c2); }));
             }
-            ch.SelectedAbility.Resolve(ch, ch.SelectedTarget);
+            //ch.SelectedAbility.Resolve(ch, ch.SelectedTarget);
             yield return new WaitForSeconds(0.1f);
         }
         if (attackerAll.Count() > 0)
@@ -386,24 +422,33 @@ public class Controls : MonoBehaviour
         // Draw
         if (team1Dead && team2Dead)
         {
-
+            WinPanel.SetActive(true);
+            WinPanel.transform.FindChild("Panel/Text").GetComponent<Text>().text = string.Format("close call...\nthis is a DRAW");
         }
         // Team 1 wins
         else if (team2Dead)
         {
-
+            WinPanel.SetActive(true);
+            WinPanel.transform.FindChild("Panel/Text").GetComponent<Text>().text = string.Format("PLAYER 1 wins!\nway to go dude");
         }
         // Team 2 wins
         else if (team1Dead)
         {
-
+            WinPanel.SetActive(true);
+            WinPanel.transform.FindChild("Panel/Text").GetComponent<Text>().text = string.Format("PLAYER 2 wins!\nway to go dude");
         }
         // Next round
         else
         {
+            // Reset skip turns
+            foreach (Team t in Teams)
+            {
+                foreach (Character ch in t.Chars)
+                    ch.SkipTurn = Mathf.Max(0, ch.SkipTurn - 1);
+            }
+
             currentTeam = 0;
-            currentCharacter = 0;
-            SetState(State.WaitForPlayer);
+            StartPlayerTurn();
         }
     }
 
@@ -425,7 +470,7 @@ public class Controls : MonoBehaviour
         bool hasMoreCharacters = false;
         for (int i=currentCharacter+1; i<CurrentTeam.Chars.Length; ++i)
         {
-            if (!CurrentTeam.Chars[i].IsDead && !CurrentTeam.Chars[i].SkipTurn)
+            if (!CurrentTeam.Chars[i].IsDead && (CurrentTeam.Chars[i].SkipTurn == 0))
             {
                 hasMoreCharacters = true;
                 currentCharacter = i;
@@ -450,9 +495,8 @@ public class Controls : MonoBehaviour
             }
             else
             {
-                currentCharacter = 0;
                 currentTeam = 1;
-                SetState(State.WaitForPlayer);
+                StartPlayerTurn();
             }
         }
     }
@@ -478,10 +522,10 @@ public class Controls : MonoBehaviour
         abilityList[6] = new Abilities.DelayedAttack();
     }
 
-    IEnumerator AttackAnim(Transform from, Transform to, int projectile)
+    IEnumerator AttackAnim(Character from, Character to, int projectile, System.Action<Character, Character> onEnded)
     {
         GameObject go = Instantiate(Projectiles[projectile]);
-        go.transform.position = from.position;
+        go.transform.position = from.transform.position;
 
         float duration = 1.5f;
         float start = Time.time;
@@ -489,12 +533,45 @@ public class Controls : MonoBehaviour
         {
             float f = (Time.time - start) / duration;
             f = f * f;
-            go.transform.position = Vector3.Lerp(from.position, to.position, f);
+            go.transform.position = Vector3.Lerp(from.transform.position, to.transform.position, f);
 
             yield return null;
         }
 
         Destroy(go);
+
+        FX.DoHitEffect(to.transform.position);
+
+        if (onEnded != null)
+            onEnded(from, to);
+    }
+
+    void StartPlayerTurn()
+    {
+        Debug.Log("Start turn for player " + currentTeam);
+
+        //foreach (Character ch in EnemyTeam.Chars)
+        //    ch.SkipTurn = false;
+
+        currentCharacter = 0;
+        if (SelectFirstCharacter())
+            SetState(State.WaitForPlayer);
+        else
+            SetState(State.SkipTurn);
+    }
+
+    bool SelectFirstCharacter()
+    {
+        while ((CurrentTeam.Chars.Length > currentCharacter) && (CurrentTeam.Chars[currentCharacter].IsDead || (CurrentTeam.Chars[currentCharacter].SkipTurn > 0)))
+            ++currentCharacter;
+
+        if (currentCharacter >= CurrentTeam.Chars.Length)
+        {
+            SetState(State.SkipTurn);
+            return false;
+        }
+
+        return true;
     }
 
     [System.Serializable]

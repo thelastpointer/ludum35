@@ -6,17 +6,25 @@ public class Character : MonoBehaviour
     public GameObject GFX;
     public GameObject Selector;
 
+    public GameObject[] Hearts;
+
     public bool IsDead = false;
     public int Health = 3;
 
     public Ability SelectedAbility;
     public Character SelectedTarget;
 
-    public bool SkipTurn = false;
+    public int SkipTurn = 0;
 
     public void ChangeHealth(int add)
     {
         Health += add;
+
+        if (Health > 3)
+            Health = 3;
+
+        for (int i = 0; i < Hearts.Length; ++i)
+            Hearts[i].SetActive(i < Health);
 
         if (Health <= 0)
         {
