@@ -12,6 +12,7 @@ public class Controls : MonoBehaviour
     public GameObject SkipTurnPanel;
     public GameObject HelpPanel;
     public AbilitySelector[] AbilitySelectors;
+    public float AnimDelay = 0.5f;
     public GameObject[] CharacterStates;
     public GameObject[] Projectiles;
     public GameObject DeadState;
@@ -345,7 +346,7 @@ public class Controls : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         if (chars.Count() > 0)
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(AnimDelay);
 
         // Disablers
         Debug.Log("Disablers");
@@ -357,7 +358,7 @@ public class Controls : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         if (chars.Count() > 0)
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(AnimDelay);
 
         // Healers
         Debug.Log("Healers");
@@ -369,7 +370,7 @@ public class Controls : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         if (chars.Count() > 0)
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(AnimDelay);
 
         // Self destruct
         Debug.Log("Self destructors");
@@ -381,7 +382,7 @@ public class Controls : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         if (chars.Count() > 0)
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(AnimDelay);
 
         // Attackers -- random
         Debug.Log("Attackers");
@@ -410,7 +411,7 @@ public class Controls : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         if (chars.Count() > 0)
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(AnimDelay * 2f);
 
         Debug.Log("Resolved!");
 
@@ -556,6 +557,7 @@ public class Controls : MonoBehaviour
     IEnumerator AttackAnim(Character from, Character to, int projectile, System.Action<Character, Character> onEnded)
     {
         GameObject go = Instantiate(Projectiles[projectile]);
+        go.transform.localScale = new Vector3(from.transform.localScale.x, 1, 1);
         go.transform.position = from.transform.position;
 
         float duration = 1.5f;
