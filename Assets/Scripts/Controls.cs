@@ -14,6 +14,7 @@ public class Controls : MonoBehaviour
     public AbilitySelector[] AbilitySelectors;
     public GameObject[] CharacterStates;
     public GameObject[] Projectiles;
+    public GameObject DeadState;
 
     int currentTeam = 0;
     int currentCharacter = 0;
@@ -421,16 +422,18 @@ public class Controls : MonoBehaviour
             if (!ch.IsDead)
             {
                 team1Dead = false;
-                break;
             }
+            else
+                ch.SetState(DeadState);
         }
         foreach (Character ch in Teams[1].Chars)
         {
             if (!ch.IsDead)
             {
                 team2Dead = false;
-                break;
             }
+            else
+                ch.SetState(DeadState);
         }
 
         // Draw
