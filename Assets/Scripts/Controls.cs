@@ -320,6 +320,21 @@ public class Controls : MonoBehaviour
 
     IEnumerator ResolveTurn()
     {
+        // Delayed damage
+        foreach (Team t in Teams)
+        {
+            foreach (Character ch in t.Chars)
+            {
+                if (ch.DelayedDamage > 0)
+                {
+                    ch.ChangeHealth(-ch.DelayedDamage);
+                    ch.DelayedDamage = 0;
+
+                    FX.DoDelayedEffect(ch.transform.position);
+                }
+            }
+        }
+
         // Defense chars
         Debug.Log("Defenders");
         IEnumerable<Character> chars = GetCharsWithAbility(typeof(Abilities.Defend));
@@ -389,7 +404,6 @@ public class Controls : MonoBehaviour
             else if (ch.SelectedAbility is Abilities.DelayedAttack)
             {
                 ch.SetState(CharacterStates[(int)CharState.Delayed]);
-                StartCoroutine(AttackAnim(ch, ch.SelectedTarget, 2, (c1, c2) => { c1.SelectedAbility.Resolve(c1, c2); }));
             }
             
             yield return new WaitForSeconds(0.1f);

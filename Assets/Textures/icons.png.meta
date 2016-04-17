@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ef142bf978dda254a8d3cb8b56f117e1
-timeCreated: 1460895417
+timeCreated: 1460918047
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,7 @@ TextureImporter:
     21300002: miss
     21300004: icons_1
     21300006: deflect
+    21300008: icons_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -73,7 +74,7 @@ TextureImporter:
         width: 21
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: miss
@@ -94,6 +95,17 @@ TextureImporter:
         y: 229
         width: 60
         height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: icons_0
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 228
+        width: 63
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

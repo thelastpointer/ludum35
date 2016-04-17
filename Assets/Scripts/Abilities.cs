@@ -132,7 +132,7 @@ namespace Abilities
 
         public void Resolve(Character user, Character target)
         {
-            throw new NotImplementedException();
+            target.DelayedDamage += 2;
         }
     }
 }

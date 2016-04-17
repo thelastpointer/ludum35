@@ -7,6 +7,7 @@ public class FX : MonoBehaviour
     public GameObject DeflectEffect;
     public GameObject HitEffect;
     public GameObject HealEffect;
+    public GameObject DelayedEffect;
 
     public float RandomOffset = 0;
 
@@ -35,6 +36,11 @@ public class FX : MonoBehaviour
     public static void DoHealEffect(Vector3 pos)
     {
         GameObject go = Instantiate(instance.HealEffect);
+        go.transform.position = pos + (Vector3)(Random.insideUnitCircle);
+    }
+    public static void DoDelayedEffect(Vector3 pos)
+    {
+        GameObject go = Instantiate(instance.DelayedEffect);
         go.transform.position = pos + (Vector3)(Random.insideUnitCircle);
     }
 }
