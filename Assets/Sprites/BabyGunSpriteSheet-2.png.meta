@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 guid: 5f50adff8032cee4783fe7f2fe362270
-timeCreated: 1460914540
+timeCreated: 1460918661
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: BabyGunSpriteSheet-2_0
+    21300002: BabyGunSpriteSheet-2_1
+    21300004: BabyGunSpriteSheet-2_2
+    21300006: BabyGunSpriteSheet-2_3
+    21300008: BabyGunSpriteSheet-2_4
+    21300010: BabyGunSpriteSheet-2_5
+    21300012: BabyGunSpriteSheet-2_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +45,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +56,125 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: BabyGunSpriteSheet-2_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 150
+        width: 120
+        height: 120
+      alignment: 9
+      pivot: {x: 0.3619329, y: 0.024435807}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35.43195, y: 117.0677}
+        - {x: -43.43195, y: 91.0677}
+        - {x: -43.43195, y: -2.9322968}
+        - {x: 42.56805, y: -2.9322968}
+        - {x: 58.56805, y: 1.0677032}
+        - {x: 76.568054, y: 44.067703}
+        - {x: 76.568054, y: 60.067703}
+        - {x: 4.5680504, y: 117.0677}
+    - name: BabyGunSpriteSheet-2_1
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 130
+        width: 85
+        height: 125
+      alignment: 9
+      pivot: {x: 0.5379005, y: 0.036094725}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45.721542, y: 18.48816}
+        - {x: -40.721542, y: -4.511841}
+        - {x: 39.278458, y: -4.511841}
+        - {x: 39.278458, y: 112.48816}
+        - {x: 35.278458, y: 120.48816}
+        - {x: -39.721542, y: 120.48816}
+        - {x: -45.721542, y: 118.48816}
+    - name: BabyGunSpriteSheet-2_2
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 80
+        width: 120
+        height: 55
+      alignment: 9
+      pivot: {x: 0.016765166, y: 0.19039515}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 59.988182, y: 44.528267}
+        - {x: -2.011818, y: 13.528267}
+        - {x: -2.011818, y: -10.471733}
+        - {x: 76.98818, y: -10.471733}
+        - {x: 117.98818, y: 12.528267}
+        - {x: 117.98818, y: 36.528267}
+        - {x: 73.98818, y: 44.528267}
+    - name: BabyGunSpriteSheet-2_3
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 85
+        width: 55
+        height: 35
+      alignment: 9
+      pivot: {x: 0.08161482, y: 0.42110464}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.4888153, y: 20.261337}
+        - {x: -4.4888153, y: -14.738663}
+        - {x: 43.511185, y: -14.738663}
+        - {x: 50.511185, y: -12.738663}
+        - {x: 50.511185, y: 20.261337}
+    - name: BabyGunSpriteSheet-2_4
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 5
+        width: 35
+        height: 60
+      alignment: 9
+      pivot: {x: 0.38165665, y: 0.95255333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.357983, y: 2.8468018}
+        - {x: -13.357983, y: -54.1532}
+        - {x: -10.357983, y: -57.1532}
+        - {x: 18.642017, y: -57.1532}
+        - {x: 21.642017, y: -54.1532}
+        - {x: 21.642017, y: -28.153198}
+        - {x: 13.642017, y: 2.8468018}
+    - name: BabyGunSpriteSheet-2_5
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 5
+        width: 35
+        height: 60
+      alignment: 9
+      pivot: {x: 0.40795484, y: 0.9602236}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.2784195, y: 2.3865814}
+        - {x: -14.2784195, y: -54.61342}
+        - {x: -11.2784195, y: -57.61342}
+        - {x: 17.72158, y: -57.61342}
+        - {x: 20.72158, y: -54.61342}
+        - {x: 20.72158, y: -28.613419}
+        - {x: 12.7215805, y: 2.3865814}
+    - name: BabyGunSpriteSheet-2_6
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 40
+        width: 55
+        height: 25
+      alignment: 9
+      pivot: {x: 0.53347087, y: 0.46318284}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     outline: []
   spritePackingTag: 
   userData: 

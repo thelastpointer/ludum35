@@ -2,3 +2,5 @@ Library/
 *.sln
 *.csproj
 .vs/
+Temp/UnityLockfile
+Temp/

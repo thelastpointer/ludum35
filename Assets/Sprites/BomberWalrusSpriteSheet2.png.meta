@@ -1,0 +1,142 @@
+fileFormatVersion: 2
+guid: e842d8c11d12e6a42812ef3c8fc08a4b
+timeCreated: 1460918315
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BomberWalrusSpriteSheet2_0
+    21300002: BomberWalrusSpriteSheet2_1
+    21300004: BomberWalrusSpriteSheet2_2
+    21300006: BomberWalrusSpriteSheet2_3
+    21300008: BomberWalrusSpriteSheet2_4
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: BomberWalrusSpriteSheet2_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 245
+        width: 30
+        height: 85
+      alignment: 9
+      pivot: {x: 0.4810976, y: 0.9469777}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: BomberWalrusSpriteSheet2_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 245
+        width: 30
+        height: 85
+      alignment: 9
+      pivot: {x: 0.46219534, y: 0.9536488}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: BomberWalrusSpriteSheet2_2
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 258
+        width: 65
+        height: 50
+      alignment: 9
+      pivot: {x: 0.4738279, y: 0.0917157}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30.798813, y: 45.414215}
+        - {x: -30.798813, y: -4.585785}
+        - {x: 19.201187, y: -4.585785}
+        - {x: 34.201187, y: 15.414215}
+        - {x: 34.201187, y: 45.414215}
+    - name: BomberWalrusSpriteSheet2_3
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 230
+        width: 95
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38.5, y: 55}
+        - {x: -47.5, y: 38}
+        - {x: -47.5, y: -48}
+        - {x: -19.5, y: -55}
+        - {x: 47.5, y: -55}
+        - {x: 47.5, y: -32}
+        - {x: -18.5, y: 55}
+    - name: BomberWalrusSpriteSheet2_4
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 5
+        width: 255
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 127.5, y: -3.5}
+        - {x: 127.5, y: 51.5}
+        - {x: 116.5, y: 102.5}
+        - {x: -0.5, y: 102.5}
+        - {x: -34.5, y: 51.5}
+        - {x: -73.5, y: -49.5}
+        - {x: -127.5, y: -54.5}
+        - {x: -127.5, y: -88.5}
+        - {x: -87.5, y: -102.5}
+        - {x: 91.5, y: -102.5}
+        - {x: 127.5, y: -97.5}
+        - {x: 127.5, y: -65.5}
+        - {x: 103.5, y: -46.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
