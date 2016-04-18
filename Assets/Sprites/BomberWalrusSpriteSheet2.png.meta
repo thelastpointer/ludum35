@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e842d8c11d12e6a42812ef3c8fc08a4b
-timeCreated: 1460918315
+timeCreated: 1460921735
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -100,17 +100,17 @@ TextureImporter:
         y: 230
         width: 95
         height: 110
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.33286613, y: 0.33503667}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -38.5, y: 55}
-        - {x: -47.5, y: 38}
-        - {x: -47.5, y: -48}
-        - {x: -19.5, y: -55}
-        - {x: 47.5, y: -55}
-        - {x: 47.5, y: -32}
-        - {x: -18.5, y: 55}
+      - - {x: -22.622284, y: 73.145966}
+        - {x: -31.622284, y: 56.145966}
+        - {x: -31.622284, y: -29.854034}
+        - {x: -3.622284, y: -36.854034}
+        - {x: 63.377716, y: -36.854034}
+        - {x: 63.377716, y: -13.854034}
+        - {x: -2.622284, y: 73.145966}
     - name: BomberWalrusSpriteSheet2_4
       rect:
         serializedVersion: 2

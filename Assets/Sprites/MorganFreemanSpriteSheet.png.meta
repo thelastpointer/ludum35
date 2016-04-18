@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 guid: 789d9ae23fc46a44da28435c5370f590
-timeCreated: 1460914540
+timeCreated: 1460967748
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: MorganFreemanSpriteSheet_0
+    21300002: MorganFreemanSpriteSheet_1
+    21300004: MorganFreemanSpriteSheet_2
+    21300006: MorganFreemanSpriteSheet_3
+    21300008: MorganFreemanSpriteSheet_4
+    21300010: MorganFreemanSpriteSheet_5
+    21300012: MorganFreemanSpriteSheet_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +45,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +56,125 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: MorganFreemanSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 260
+        width: 95
+        height: 105
+      alignment: 9
+      pivot: {x: 0.49999997, y: 0.030384174}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44.499996, y: 101.80966}
+        - {x: -47.499996, y: 99.80966}
+        - {x: -47.499996, y: -1.1903381}
+        - {x: -40.499996, y: -3.1903381}
+        - {x: 39.500004, y: -3.1903381}
+        - {x: 47.500004, y: 15.809662}
+        - {x: 47.500004, y: 101.80966}
+    - name: MorganFreemanSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 245
+        width: 90
+        height: 115
+      alignment: 9
+      pivot: {x: 0.42466584, y: 0.97165793}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38.219925, y: 3.2593384}
+        - {x: -38.219925, y: -111.74066}
+        - {x: 51.780075, y: -111.74066}
+        - {x: 51.780075, y: -86.74066}
+        - {x: 33.780075, y: 3.2593384}
+    - name: MorganFreemanSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 250
+        width: 95
+        height: 105
+      alignment: 9
+      pivot: {x: 0.5000003, y: 0.024514044}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44.50003, y: 102.426025}
+        - {x: -47.50003, y: 100.426025}
+        - {x: -47.50003, y: -0.5739746}
+        - {x: -40.50003, y: -2.5739746}
+        - {x: 39.49997, y: -2.5739746}
+        - {x: 47.49997, y: 16.426025}
+        - {x: 47.49997, y: 102.426025}
+    - name: MorganFreemanSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 205
+        width: 115
+        height: 40
+      alignment: 9
+      pivot: {x: 0.87518203, y: 0.6849117}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -100.645935, y: 12.603531}
+        - {x: -100.645935, y: -27.39647}
+        - {x: 14.354065, y: -27.39647}
+        - {x: 14.354065, y: 12.603531}
+    - name: MorganFreemanSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 35
+        width: 145
+        height: 190
+      alignment: 9
+      pivot: {x: 0.51275265, y: 0.17235032}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.349136, y: 157.25345}
+        - {x: -74.34914, y: 136.25345}
+        - {x: -74.34914, y: 28.25344}
+        - {x: -16.349136, y: -32.74656}
+        - {x: 44.650864, y: -32.74656}
+        - {x: 70.65086, y: 41.25344}
+        - {x: 70.65086, y: 157.25345}
+    - name: MorganFreemanSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 155
+        width: 105
+        height: 40
+      alignment: 9
+      pivot: {x: 0.042124484, y: 0.37672615}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -0.42307281, y: 24.930954}
+        - {x: -4.423073, y: 17.930954}
+        - {x: -4.423073, y: -15.069046}
+        - {x: 100.57693, y: -15.069046}
+        - {x: 100.57693, y: 19.930954}
+        - {x: 93.57693, y: 24.930954}
+    - name: MorganFreemanSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 30
+        width: 95
+        height: 115
+      alignment: 9
+      pivot: {x: 0.5194643, y: 0.071220234}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45.34911, y: 106.80968}
+        - {x: -49.34911, y: 98.80968}
+        - {x: -49.34911, y: -8.190327}
+        - {x: 45.65089, y: -8.190327}
+        - {x: 45.65089, y: 106.80968}
     outline: []
   spritePackingTag: 
   userData: 

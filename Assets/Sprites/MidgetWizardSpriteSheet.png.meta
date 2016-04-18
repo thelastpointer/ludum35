@@ -1,9 +1,14 @@
 fileFormatVersion: 2
 guid: 907d273fc45b7944186e61bd33af0aa5
-timeCreated: 1460914540
+timeCreated: 1460923110
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: MidgetWizardSpriteSheet_0
+    21300002: MidgetWizardSpriteSheet_1
+    21300004: MidgetWizardSpriteSheet_2
+    21300006: MidgetWizardSpriteSheet_3
+    21300008: MidgetWizardSpriteSheet_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +35,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +43,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +54,100 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: MidgetWizardSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 250
+        width: 145
+        height: 125
+      alignment: 9
+      pivot: {x: 0.4956924, y: 0.045299318}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -58.875397, y: 119.337585}
+        - {x: -70.8754, y: 108.337585}
+        - {x: -71.8754, y: 104.337585}
+        - {x: -71.8754, y: 4.3375854}
+        - {x: -62.875397, y: -5.6624146}
+        - {x: 59.124603, y: -5.6624146}
+        - {x: 73.1246, y: -2.6624146}
+        - {x: 73.1246, y: 39.337585}
+        - {x: 39.124603, y: 119.337585}
+    - name: MidgetWizardSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 245
+        width: 110
+        height: 130
+      alignment: 9
+      pivot: {x: 0.5000001, y: 0.9708442}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -55.000015, y: 3.7902527}
+        - {x: -55.000015, y: -126.20975}
+        - {x: 54.999985, y: -126.20975}
+        - {x: 54.999985, y: 3.7902527}
+    - name: MidgetWizardSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 75
+        width: 120
+        height: 165
+      alignment: 9
+      pivot: {x: 0.49999994, y: 0.6324887}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -46.999992, y: 60.63936}
+        - {x: -59.999992, y: 9.6393585}
+        - {x: -59.999992, y: -101.36064}
+        - {x: -44.999992, y: -101.36064}
+        - {x: -42.999992, y: -99.36064}
+        - {x: -20.999992, y: -104.36064}
+        - {x: 40.000008, y: -104.36064}
+        - {x: 60.000008, y: -92.36064}
+        - {x: 60.000008, y: 60.63936}
+    - name: MidgetWizardSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 5
+        width: 55
+        height: 225
+      alignment: 9
+      pivot: {x: 0.38643828, y: 0.4750167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21.254105, y: 118.12124}
+        - {x: -21.254105, y: 41.12124}
+        - {x: -11.254105, y: 31.121239}
+        - {x: -9.254105, y: -102.87876}
+        - {x: -8.254105, y: -106.87876}
+        - {x: 17.745895, y: -106.87876}
+        - {x: 25.745895, y: -104.87876}
+        - {x: 33.745895, y: -49.87876}
+        - {x: 33.745895, y: 118.12124}
+    - name: MidgetWizardSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 20
+        width: 85
+        height: 40
+      alignment: 9
+      pivot: {x: 0.029721316, y: 0.48438588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 79.47369, y: 20.624565}
+        - {x: -2.5263138, y: 20.624565}
+        - {x: -2.5263138, y: -19.375435}
+        - {x: 51.473686, y: -19.375435}
+        - {x: 78.47369, y: -12.375435}
+        - {x: 82.47369, y: -8.375435}
+        - {x: 82.47369, y: 17.624565}
     outline: []
   spritePackingTag: 
   userData: 
