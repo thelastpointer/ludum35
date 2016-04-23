@@ -327,6 +327,7 @@ public class Controls : MonoBehaviour
         {
             foreach (Character ch in t.Chars)
             {
+                Debug.Log(ch.name + ": " + ch.DelayedDamage);
                 if (ch.DelayedDamage > 0)
                 {
                     ch.ChangeHealth(-ch.DelayedDamage);
@@ -406,6 +407,7 @@ public class Controls : MonoBehaviour
             else if (ch.SelectedAbility is Abilities.DelayedAttack)
             {
                 ch.SetState(CharacterStates[(int)CharState.Delayed]);
+                StartCoroutine(AttackAnim(ch, ch.SelectedTarget, 2, (c1, c2) => { c1.SelectedAbility.Resolve(c1, c2); }));
             }
             
             yield return new WaitForSeconds(0.1f);
